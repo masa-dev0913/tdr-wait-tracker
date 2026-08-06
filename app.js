@@ -57,6 +57,84 @@ function formatJstDateTime(isoString) {
   });
 }
 
+function getJapaneseAttractionName(name) {
+  switch (name) {
+    // 東京ディズニーランド
+    case "Omnibus": return "オムニバス";
+    case "Western River Railroad": return "ウエスタンリバー鉄道";
+    case "Jungle Cruise: Wildlife Expeditions": return "ジャングルクルーズ：ワイルドライフ・エクスペディションズ";
+    case "Pirates of the Caribbean": return "カリブの海賊";
+    case "Swiss Family Treehouse": return "スイスファミリー・ツリーハウス";
+    case 'Enchanted Tiki Room: Stitch Presents “Aloha E Komo Mai!”': return "魅惑のチキルーム：スティッチ・プレゼンツ「アロハ・エ・コモ・マイ！」";
+    case "Big Thunder Mountain": return "ビッグサンダー・マウンテン";
+    case "Country Bear Theater": return "カントリーベア・シアター";
+    case "Mark Twain Riverboat": return "蒸気船マークトウェイン号";
+    case "Tom Sawyer Island Rafts": return "トムソーヤ島いかだ";
+    case "Westernland Shooting Gallery": return "ウエスタンランド・シューティングギャラリー";
+    case "Splash Mountain": return "スプラッシュ・マウンテン";
+    case "Beaver Brothers Explorer Canoes": return "ビーバーブラザーズのカヌー探険";
+    case "Alice’s Tea Party": return "アリスのティーパーティー";
+    case "“it’s a small world with Groot”": return "「イッツ・ア・スモールワールド with グルート」";
+    case "Castle Carrousel": return "キャッスルカルーセル";
+    case "Cinderella’s Fairy Tale Hall": return "シンデレラのフェアリーテイル・ホール";
+    case "Dumbo the Flying Elephant": return "空飛ぶダンボ";
+    case "Haunted Mansion": return "ホーンテッドマンション";
+    case "Peter Pan’s Flight": return "ピーターパン空の旅";
+    case "Pinocchio’s Daring Journey": return "ピノキオの冒険旅行";
+    case "Snow White’s Adventures": return "白雪姫と七人のこびと";
+    case "The Many Adventures of Winnie the Pooh": return "プーさんのハニーハント";
+    case "Mickey’s PhilharMagic": return "ミッキーのフィルハーマジック";
+    case "Gadget’s Go Coaster": return "ガジェットのゴーコースター";
+    case "Goofy’s Paint ’n’ Play House": return "グーフィーのペイント＆プレイハウス";
+    case "Chip ’n’ Dale’s Treehouse": return "チップとデールのツリーハウス";
+    case "Donald’s Boat": return "ドナルドのボート";
+    case "Minnie’s House": return "ミニーの家";
+    case "Roger Rabbit’s Car Toon Spin": return "ロジャーラビットのカートゥーンスピン";
+    case "Toon Park": return "トゥーンパーク";
+    case "Mickey’s House and Meet Mickey": return "ミッキーの家とミート・ミッキー";
+    case "Star Tours: The Adventures Continue": return "スター・ツアーズ：ザ・アドベンチャーズ・コンティニュー";
+    case "Stitch Encounter": return "スティッチ・エンカウンター";
+    case "The Happy Ride with Baymax": return "ベイマックスのハッピーライド";
+    case "Monsters, Inc. Ride & Go Seek!": return "モンスターズ・インク“ライド＆ゴーシーク！”";
+    case "Star Jets": return "スタージェット";
+
+    // 東京ディズニーシー
+    case "DisneySea Transit Steamer Line (Mediterranean Harbor)": return "ディズニーシー・トランジットスチーマーライン（メディテレーニアンハーバー）";
+    case "Venetian Gondolas": return "ヴェネツィアン・ゴンドラ";
+    case "Soaring: Fantastic Flight": return "ソアリン：ファンタスティック・フライト";
+    case "Fortress Explorations": return "フォートレス・エクスプロレーション";
+    case "DisneySea Transit Steamer Line (American Waterfront)": return "ディズニーシー・トランジットスチーマーライン（アメリカンウォーターフロント）";
+    case "Big City Vehicles": return "ビッグシティ・ヴィークル";
+    case "DisneySea Electric Railway": return "ディズニーシー・エレクトリックレールウェイ";
+    case "Tower of Terror": return "タワー・オブ・テラー";
+    case "Toy Story Mania!": return "トイ・ストーリー・マニア！";
+    case "Turtle Talk": return "タートル・トーク";
+    case "Aquatopia": return "アクアトピア";
+    case "Nemo & Friends SeaRider": return "ニモ＆フレンズ・シーライダー";
+    case "DisneySea Transit Steamer Line (Lost River Delta)": return "ディズニーシー・トランジットスチーマーライン（ロストリバーデルタ）";
+    case "Indiana Jones Adventure: Temple of the Crystal Skull": return "インディ・ジョーンズ®・アドベンチャー：クリスタルスカルの魔宮";
+    case "Raging Spirits": return "レイジングスピリッツ";
+    case "Caravan Carousel": return "キャラバンカルーセル";
+    case "Jasmine’s Flying Carpets": return "ジャスミンのフライングカーペット";
+    case "The Magic Lamp Theater": return "マジックランプシアター";
+    case "Sinbad’s Storybook Voyage": return "シンドバッド・ストーリーブック・ヴォヤッジ";
+    case "Flounder’s Flying Fish Coaster": return "フランダーのフライングフィッシュコースター";
+    case "Scuttle’s Scooters": return "スカットルのスクーター";
+    case "Jumpin’ Jellyfish": return "ジャンピン・ジェリーフィッシュ";
+    case "The Whirlpool": return "ワールプール";
+    case "Blowfish Balloon Race": return "ブローフィッシュ・バルーンレース";
+    case "Ariel’s Playground": return "アリエルのプレイグラウンド";
+    case "Journey to the Center of the Earth": return "センター・オブ・ジ・アース";
+    case "20,000 Leagues Under the Sea": return "海底2万マイル";
+    case "Anna and Elsa’s Frozen Journey": return "アナとエルサのフローズンジャーニー";
+    case "Rapunzel’s Lantern Festival": return "ラプンツェルのランタンフェスティバル";
+    case "Peter Pan’s Never Land Adventure": return "ピーターパンのネバーランドアドベンチャー";
+    case "Fairy Tinker Bell’s Busy Buggies": return "フェアリー・ティンカーベルのビジーバギー";
+
+    default: return name; // 未登録の場合は原名を返す
+  }
+}
+
 // ---- 現在の待ち時間一覧 ----
 
 async function fetchLiveList() {
@@ -74,13 +152,13 @@ async function fetchLiveList() {
       if (!park) continue;
       attractions.push({
         id: entry.id,
-        name: entry.name,
+        name: getAttractionName(entry.name),
         park,
         status: entry.status,
         standbyWaitTime: entry.queue?.STANDBY?.waitTime ?? null,
         lastUpdated: entry.lastUpdated,
       });
-      state.attractionsMeta[entry.id] = { name: entry.name, park };
+      state.attractionsMeta[entry.id] = { name: getAttractionName(entry.name), park };
     }
 
     state.liveAttractions = attractions;
