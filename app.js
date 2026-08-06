@@ -152,13 +152,13 @@ async function fetchLiveList() {
       if (!park) continue;
       attractions.push({
         id: entry.id,
-        name: getAttractionName(entry.name),
+        name: getJapaneseAttractionName(entry.name),
         park,
         status: entry.status,
         standbyWaitTime: entry.queue?.STANDBY?.waitTime ?? null,
         lastUpdated: entry.lastUpdated,
       });
-      state.attractionsMeta[entry.id] = { name: getAttractionName(entry.name), park };
+      state.attractionsMeta[entry.id] = { name: getJapaneseAttractionName(entry.name), park };
     }
 
     state.liveAttractions = attractions;
