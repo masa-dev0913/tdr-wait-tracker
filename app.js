@@ -120,7 +120,7 @@ function getJapaneseAttractionName(name) {
     case "Caravan Carousel": return "キャラバンカルーセル";
     case "Jasmine's Flying Carpets": return "ジャスミンのフライングカーペット";
     case "The Magic Lamp Theater": return "マジックランプシアター";
-    case "Sinbad's Storybook Voyage": return "シンドバッド・ストーリーブック・ヴォヤッジ";
+    case "Sindbad's Storybook Voyage": return "シンドバッド・ストーリーブック・ヴォヤッジ";
     case "Flounder's Flying Fish Coaster": return "フランダーのフライングフィッシュコースター";
     case "Scuttle's Scooters": return "スカットルのスクーター";
     case "Jumpin' Jellyfish": return "ジャンピン・ジェリーフィッシュ";
