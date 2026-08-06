@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>待ち時間ボード | 東京ディズニーリゾート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="board-header">
+  <div class="board-header__inner">
+    <p class="board-header__eyebrow">TOKYO DISNEY RESORT</p>
+    <h1 class="board-header__title">待ち時間ボード</h1>
+  </div>
+  <nav class="park-tabs" aria-label="パーク選択">
+    <button class="park-tab is-active" data-park="TDL" type="button">ランド</button>
+    <button class="park-tab" data-park="TDS" type="button">シー</button>
+  </nav>
+</header>
+
+<nav class="view-tabs" aria-label="表示切替">
+  <button class="view-tab is-active" data-view="list" type="button">現在の待ち時間</button>
+  <button class="view-tab" data-view="graph" type="button">推移グラフ</button>
+</nav>
+
+<main class="board-main">
+
+  <!-- 現在の待ち時間一覧 -->
+  <section id="view-list" class="view-panel is-active">
+    <div class="panel-toolbar">
+      <div class="panel-toolbar__status">
+        <span id="list-updated" class="status-text">読み込み中…</span>
+      </div>
+      <div class="panel-toolbar__actions">
+        <button id="sort-toggle" class="btn btn--ghost" type="button">
+          並び替え: <span id="sort-toggle-label">エントリー順</span>
+        </button>
+        <button id="list-refresh" class="btn btn--accent" type="button">更新</button>
+      </div>
+    </div>
+    <ul id="attraction-list" class="attraction-list" aria-live="polite"></ul>
+  </section>
+
+  <!-- 推移グラフ -->
+  <section id="view-graph" class="view-panel">
+    <div class="panel-toolbar panel-toolbar--wrap">
+      <label class="field">
+        <span class="field__label">アトラクション</span>
+        <select id="attraction-select"></select>
+      </label>
+      <label class="field">
+        <span class="field__label">日付</span>
+        <input id="date-picker" type="date" />
+      </label>
+      <label class="field field--checkbox">
+        <input id="show-single-rider" type="checkbox" />
+        <span>シングルライダー</span>
+      </label>
+      <label class="field field--checkbox">
+        <input id="show-priority-pass" type="checkbox" />
+        <span>プライオリティパス</span>
+      </label>
+    </div>
+    <p id="graph-status" class="status-text"></p>
+    <div class="chart-wrap">
+      <canvas id="wait-chart" height="320"></canvas>
+    </div>
+    <ul class="legend-note">
+      <li><span class="legend-dot legend-dot--down"></span>運休(DOWN)</li>
+      <li><span class="legend-gap"></span>途切れている区間は営業時間外・閉鎖(CLOSED)</li>
+    </ul>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
