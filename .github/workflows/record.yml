@@ -3,7 +3,7 @@ name: Record wait times
 on:
   schedule:
     # 20分おきに実行(UTC基準。ズレ・遅延は許容する方針)
-    - cron: "*/20 * * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch: {}
 
 permissions:

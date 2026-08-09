@@ -37,6 +37,9 @@ JST = ZoneInfo("Asia/Tokyo")
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 REQUEST_TIMEOUT_SECONDS = 30
 
+OPEN_TIME = "08:00"
+CLOSE_TIME = "22:00"
+
 
 def fetch_live_data() -> dict[str, Any]:
     response = requests.get(API_URL, timeout=REQUEST_TIMEOUT_SECONDS)
@@ -126,6 +129,16 @@ def append_record(record: dict[str, Any]) -> Path:
 
 
 def main() -> int:
+
+    # 営業時間内だけ記録するようにする(夜間のAPI呼び出しは無駄なので)
+    now_jst = datetime.now(JST)
+    if not (OPEN_TIME <= now_jst.strftime("%H:%M") <= CLOSE_TIME):
+        print(
+            f"現在時刻({now_jst.strftime('%H:%M')})は営業時間外のためスキップします",
+            file=sys.stderr,
+        )
+        return 0
+
     try:
         live_data = fetch_live_data()
     except requests.RequestException as exc:
